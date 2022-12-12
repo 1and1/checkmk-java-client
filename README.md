@@ -48,7 +48,7 @@ The client code can be generated with
 
 ## Version numbers
 
-Version numbers are composed by two parts:
+Version numbers are composed of two parts:
 
 1. First two segments: The generator script version.
 2. Last segments: The Checkmk API version specification.
