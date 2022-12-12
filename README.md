@@ -34,7 +34,7 @@ you'll be able to use the client:
   <version>$THE_VERSION_TO_USE</version>
 ```
 
-For the appropriate version, please see the "Version numbers" section below
+For the appropriate version, please see the ["Version numbers"](#version-numbers) section below
 and see [Maven Central](https://search.maven.org/search?q=g:com.oneandone%20AND%20a:checkmk-java-client)
 versions.
 
