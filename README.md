@@ -53,8 +53,10 @@ Version numbers are composed of two parts:
 1. First two segments: The generator script version.
 2. Last segments: The Checkmk API version specification.
 
-Example: Version `1.0.2.1.0.17` is composed of the parts `1.0` being the generator script
-version, and `2.1.0.17` referencing to the Checkmk API `2.1.0p17`.
+Example: Version `1.0.2.1.0.17` is composed of the parts
+* `1.0` being the generator script
+version, and 
+* `2.1.0.17` referencing to the Checkmk API `2.1.0p17`.
 
 ## License
 
