@@ -1,0 +1,44 @@
+name: Generate code from OpenAPI spec in artifact 'openapi'
+
+on:
+  workflow_call:
+    inputs:
+      cmk_version:
+        required: true
+        type: string
+      source_artifact:
+        required: true
+        type: string
+      target_artifact:
+        required: true
+        type: string
+      snapshot:
+        required: false
+        type: boolean
+        default: true
+
+jobs:
+  generate-code:
+    runs-on: ubuntu-latest
+    steps:
+
+    - uses: actions/checkout@v3
+
+    - name: Install xmlstarlet for pom.xml manipulation
+      run: sudo apt-get install -y xmlstarlet
+
+    - name: Download OpenAPI spec from above job
+      uses: actions/download-artifact@v3
+      with:
+        name: ${{ inputs.source_artifact }}
+
+    - name: Create code based on OpenAPI spec
+      run: ./generate.sh
+      env:
+        OPENAPI_VERSION: ${{ inputs.cmk_version }}
+        SNAPSHOT: ${{ inputs.snapshot }}
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.target_artifact }}
+        path: .

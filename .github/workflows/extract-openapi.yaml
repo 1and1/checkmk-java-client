@@ -1,0 +1,33 @@
+name: Extract OpenAPI
+
+on:
+  workflow_call:
+    inputs:
+      cmk_version:
+        required: true
+        type: string
+      target_artifact:
+        required: true
+        type: string
+
+jobs:
+  extract-openapi:
+    runs-on: ubuntu-latest
+    steps:
+
+    - name: Spawn new cmk
+      run: docker run -d -p8080:5000 -e CMK_PASSWORD=HELLO --name cmk checkmk/check-mk-raw:${{ inputs.cmk_version }}
+
+    - name: Wait for cmk to be alive
+      run: while ! curl "http://localhost:8080//cmk/check_mk/"; do sleep 1; echo -n "."; done
+
+    - name: Fetch the OpenAPI spec
+      run: curl -H 'Authorization:Bearer cmkadmin HELLO' "http://localhost:8080/cmk/check_mk/api/v0/openapi-doc.yaml" -o openapi-doc.yaml
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: ${{ inputs.target_artifact }}
+        path: openapi-doc.yaml
+
+    - name: Kill cmk
+      run: docker kill cmk
