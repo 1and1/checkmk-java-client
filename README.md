@@ -1,7 +1,6 @@
 # CheckMK Java Client
 
 [![OpenAPI code generation](https://github.com/1and1/checkmk-java-client/actions/workflows/generate.yaml/badge.svg)](https://github.com/1and1/checkmk-java-client/actions/workflows/generate.yaml)
-![Sonatype Nexus (Snapshots)](https://img.shields.io/nexus/s/com.oneandone/checkmk-java-client?server=https%3A%2F%2Foss.sonatype.org)
 ![Maven Central](https://img.shields.io/maven-central/v/com.oneandone/checkmk-java-client)
 [![javadoc](https://javadoc.io/badge2/com.oneandone/checkmk-java-client/javadoc.svg)](https://javadoc.io/doc/com.oneandone/checkmk-java-client)
 
