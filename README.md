@@ -5,7 +5,7 @@
 [![javadoc](https://javadoc.io/badge2/com.oneandone/checkmk-java-client/javadoc.svg)](https://javadoc.io/doc/com.oneandone/checkmk-java-client)
 [![License: GPL v2](https://img.shields.io/badge/License-GPL_v2-blue.svg)](https://www.gnu.org/licenses/old-licenses/gpl-2.0.en.html)
 
-A Java REST API library that connects to a CheckMK monitoring system server.
+A Java REST API library that connects to a [CheckMK](https://github.com/tribe29/checkmk) monitoring system server.
 
 ## What's inside
 
