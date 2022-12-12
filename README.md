@@ -25,6 +25,16 @@ The client code can be generated with
 ~ ./generate.sh
 ```
 
+## What's inside
+
+The REST client is generated using the OpenAPI generator with the
+target language being Java, the HTTP client being okhttp
+and bean validation turned on.
+
+## Documentation
+
+The REST API documentation can be browsed on [Javadoc.io](https://javadoc.io/doc/com.oneandone/checkmk-java-client).
+
 ## License
 
 This repository is licensed under the [GPL 2.0](LICENSE) license.
