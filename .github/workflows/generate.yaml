@@ -5,20 +5,20 @@ env:
 
 on:
   push:
-    branches: [ master ]
+    branches: [ main ]
   pull_request:
-    branches: [ master ]
+    branches: [ main ]
 
 jobs:
   extract-openapi:
-    uses: 1and1/checkmk-java-client/.github/workflows/extract-openapi.yaml@master
+    uses: 1and1/checkmk-java-client/.github/workflows/extract-openapi.yaml@main
     with:
       cmk_version: 2.1.0p17
       target_artifact: openapi
 
   generate-code:
     needs: extract-openapi
-    uses: 1and1/checkmk-java-client/.github/workflows/generate-code.yaml@master
+    uses: 1and1/checkmk-java-client/.github/workflows/generate-code.yaml@main
     with:
       cmk_version: 2.1.0p17
       source_artifact: openapi
