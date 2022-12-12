@@ -7,6 +7,21 @@
 
 A Java REST API library that connects to a CheckMK monitoring system server.
 
+## What's inside
+
+This archive contains just scripts to build the client. It does not
+contain the source code that is being generated.
+
+The REST client is generated using the [OpenAPI generator](https://github.com/OpenAPITools/openapi-generator)
+with the target language being Java, the HTTP client being okhttp
+and bean validation turned on.
+
+## Documentation
+
+The Java API documentation can be browsed on [Javadoc.io](https://javadoc.io/doc/com.oneandone/checkmk-java-client).
+
+The REST API documentation can be browsed in your local Checkmk installation.
+
 ## Using the client in your code
 
 The client is provided as a Maven artifact. By adding this dependency to your POM,
@@ -25,21 +40,6 @@ The client code can be generated with
 ```bash
 ~ ./generate.sh
 ```
-
-## What's inside
-
-This archive contains just scripts to build the client. It does not
-contain the source code that is being generated.
-
-The REST client is generated using the [OpenAPI generator](https://github.com/OpenAPITools/openapi-generator)
-with the target language being Java, the HTTP client being okhttp
-and bean validation turned on.
-
-## Documentation
-
-The Java API documentation can be browsed on [Javadoc.io](https://javadoc.io/doc/com.oneandone/checkmk-java-client).
-
-The REST API documentation can be browsed in your local Checkmk installation.
 
 ## Version numbers
 
