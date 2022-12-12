@@ -27,8 +27,11 @@ The client code can be generated with
 
 ## What's inside
 
-The REST client is generated using the OpenAPI generator with the
-target language being Java, the HTTP client being okhttp
+This archive contains just scripts to build the client. It does not
+contain the source code that is being generated.
+
+The REST client is generated using the [OpenAPI generator](https://github.com/OpenAPITools/openapi-generator)
+with the target language being Java, the HTTP client being okhttp
 and bean validation turned on.
 
 ## Documentation
