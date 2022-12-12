@@ -9,8 +9,9 @@ A Java REST API library that connects to a CheckMK monitoring system server.
 
 ## What's inside
 
-This archive contains just scripts to build the client. It does not
-contain the source code that is being generated.
+This repository contains just scripts to build the client. It does not
+contain the source code that is being generated. Source code, library jar and
+Javadoc is on Maven Central.
 
 The REST client is generated using the [OpenAPI generator](https://github.com/OpenAPITools/openapi-generator)
 with the target language being Java, the HTTP client being okhttp
