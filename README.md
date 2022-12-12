@@ -37,7 +37,19 @@ and bean validation turned on.
 
 ## Documentation
 
-The REST API documentation can be browsed on [Javadoc.io](https://javadoc.io/doc/com.oneandone/checkmk-java-client).
+The Java API documentation can be browsed on [Javadoc.io](https://javadoc.io/doc/com.oneandone/checkmk-java-client).
+
+The REST API documentation can be browsed in your local Checkmk installation.
+
+## Version numbers
+
+Version numbers are composed by two parts:
+
+1. First two segments: The generator script version.
+2. Last segments: The Checkmk API version specification.
+
+Example: Version `1.0.2.1.0.17` contains of the parts `1.0` being the generator script
+version, and `2.1.0.17` referencing to the Checkmk API `2.1.0p17`.
 
 ## License
 
