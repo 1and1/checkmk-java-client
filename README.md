@@ -59,6 +59,18 @@ Example: Version `1.0.2.1.0.17` is composed of the parts
 version, and 
 * `2.1.0.17` referencing to the Checkmk API `2.1.0p17`.
 
+## Changes compared to the generated client
+
+There are multiple changes compared to the pure generated client. The
+generated client would not build because of certain shortcomings of
+OpenAPI generator.
+
+* Replacement of [AnyOf](https://swagger.io/docs/specification/data-models/oneof-anyof-allof-not/)-based OpenAPI types with Java Map types.
+  OpenAPI generator 5.4 does not natively support AnyOf-types.
+* Fixing of syntactic errors, i.e. combination of `@NotNull`-annotation with type names (i.e. `@NotNullString` instead of `@NotNull String`).
+* Update of several depencency versions, i.e. okhttp and gson.
+* Inclusion of the SonaType OSS artifact repository into the POM.
+
 ## License
 
 This repository is licensed under the [GPL 2.0](LICENSE) license.
