@@ -12,7 +12,7 @@ fi
 wget --quiet https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/${GENERATOR_VERSION}/openapi-generator-cli-${GENERATOR_VERSION}.jar -O openapi-generator-cli.jar
 
 rm -fr src
-./patch-config.sh $@
+./patch-config.sh
 
 if [ ! -f ./openapi-doc.yaml ]; then
     echo "No OpenAPI spec found"
@@ -33,7 +33,7 @@ java -jar ./openapi-generator-cli.jar generate \
 -c ${SCRIPTHOME}/config.use.yaml
 mv README.md.orig README.md
 
-./patch-pom.sh $@
+./patch-pom.sh
 
 xmlstarlet fo < pom.xml > /tmp/t && mv /tmp/t pom.xml
 
