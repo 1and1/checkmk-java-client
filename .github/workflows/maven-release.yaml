@@ -1,0 +1,106 @@
+# This release process looks for tags and produces releases.
+name: Release
+
+on:
+  push:
+    tags:
+      - 'checkmk-java-client-[0-9]+*'
+
+jobs:
+
+  extract-openapi:
+    uses: 1and1/checkmk-java-client/.github/workflows/extract-openapi.yaml@main
+    with:
+      cmk_version: 2.1.0p17
+      target_artifact: openapi
+
+  generate-code:
+    needs: extract-openapi
+    uses: 1and1/checkmk-java-client/.github/workflows/generate-code.yaml@main
+    with:
+      cmk_version: 2.1.0p17
+      source_artifact: openapi
+      target_artifact: source
+
+  build:
+    runs-on: ubuntu-latest
+    outputs:
+      version: ${{ steps.version.outputs.version }}
+      md5sum: ${{ steps.md5sum.outputs.md5sum }}
+      sha256sum: ${{ steps.sha256sum.outputs.sha256sum }}
+    env:
+      DEBIAN_FRONTEND: noninteractive
+
+    steps:
+    - uses: actions/checkout@v3
+
+    - name: Set up JDK 17
+      uses: actions/setup-java@v3
+      with:
+        distribution: 'adopt'
+        java-version: 17
+
+    - name: Download source
+      uses: actions/download-artifact@v3
+      with:
+        name: source
+
+    - name: Build with Maven
+      run: mvn -B package --file pom.xml
+
+    - name: Extract current maven version
+      run: echo "::set-output name=version::$(mvn org.apache.maven.plugins:maven-help-plugin:3.1.0:evaluate -Dexpression=project.version -q -DforceStdout)"
+      id: version
+      shell: bash
+
+    - uses: actions/create-release@v1
+      id: create_release
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        tag_name: ${{ github.ref }}
+        release_name: ${{ github.ref }}
+        draft: true
+        body: |
+          # Release ${{ steps.version.outputs.version }}
+          ## Changes
+          
+          * 1
+          * 2
+          * 3
+
+    - uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: openapi-doc.yaml
+        asset_name: openapi-doc.yaml
+        asset_content_type: application/x-yaml
+
+    - uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/checkmk-java-client-${{ steps.version.outputs.version }}.jar
+        asset_name: checkmk-java-client-${{ steps.version.outputs.version }}.jar
+        asset_content_type: application/java-archive
+
+    - uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/checkmk-java-client-${{ steps.version.outputs.version }}-javadoc.jar
+        asset_name: checkmk-java-client-${{ steps.version.outputs.version }}-javadoc.jar
+        asset_content_type: application/java-archive
+
+    - uses: actions/upload-release-asset@v1
+      env:
+        GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+      with:
+        upload_url: ${{ steps.create_release.outputs.upload_url }}
+        asset_path: target/checkmk-java-client-${{ steps.version.outputs.version }}-sources.jar
+        asset_name: checkmk-java-client-${{ steps.version.outputs.version }}-sources.jar
+        asset_content_type: application/java-archive
