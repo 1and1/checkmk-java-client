@@ -11,7 +11,7 @@ GITTAG="checkmk-java-client-${ARTIFACT_VERSION}"
 echo "Git tag: ${GITTAG}"
 echo "Please confirm"
 read
-git --tag ${GITTAG}
+git tag ${GITTAG}
 git push
 git push --tags
 mvn -Psonatype-oss-release deploy
