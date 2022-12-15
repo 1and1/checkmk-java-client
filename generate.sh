@@ -1,13 +1,8 @@
 #! /bin/bash
 
 set -e
-GENERATOR_VERSION=5.4.0
 SCRIPTHOME="$(cd $(dirname "$0"); pwd)"
-
-if [ "$OPENAPI_VERSION" = "" ]; then
-    export OPENAPI_VERSION=2.1.0p17
-    echo "Defaulting to OPENAPI_VERSION $OPENAPI_VERSION"
-fi
+source ${SCRIPTHOME}/settings.sh
 
 wget --quiet https://repo1.maven.org/maven2/org/openapitools/openapi-generator-cli/${GENERATOR_VERSION}/openapi-generator-cli-${GENERATOR_VERSION}.jar -O openapi-generator-cli.jar
 

@@ -1,7 +1,7 @@
 ---
 artifactId: checkmk-java-client
 groupId: com.oneandone
-artifactVersion: 1.1
+artifactVersion: REPLACEME
 artifactDescription: REST API client library for Checkmk
 hideGenerationTimestamp: true
 developerEmail: stephan.fuhrmann@ionos.com
