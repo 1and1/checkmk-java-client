@@ -46,6 +46,11 @@ jobs:
       with:
         name: source
 
+    - name: Download openapi
+      uses: actions/download-artifact@v3
+      with:
+        name: openapi
+
     - name: Build with Maven
       run: mvn -B package --file pom.xml
 
