@@ -21,6 +21,7 @@ jobs:
       cmk_version: 2.1.0p17
       source_artifact: openapi
       target_artifact: source
+      snapshot: false
 
   build:
     runs-on: ubuntu-latest
