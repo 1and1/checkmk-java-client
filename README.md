@@ -25,6 +25,8 @@ The REST API documentation can be browsed in your local Checkmk installation.
 
 ## Using the client in your code
 
+### Maven artifact
+
 The client is provided as a Maven artifact. By adding this dependency to your POM,
 you'll be able to use the client:
 
@@ -37,6 +39,12 @@ you'll be able to use the client:
 For the appropriate version, please see the ["Version numbers"](#version-numbers) section below
 and see [Maven Central](https://search.maven.org/search?q=g:com.oneandone%20AND%20a:checkmk-java-client)
 versions.
+
+### Demo code
+
+[Demonstration code](demo/src/main/java/com/ionos/network/checkmk/demo/Main.java) is in the demo project.
+It uses a custom [ApiClient](demo/src/main/java/com/ionos/network/checkmk/demo/CustomApiClient.java)
+to overcome a problem in sending the Accept header.
 
 ## Generating the client code
 
