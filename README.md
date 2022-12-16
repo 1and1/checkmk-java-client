@@ -42,7 +42,8 @@ versions.
 
 ### Demo code
 
-[Demonstration code](demo/src/main/java/com/ionos/network/checkmk/demo/Main.java) is in the demo project.
+A simple API client showing the [Checkmk version information](demo/src/main/java/com/ionos/network/checkmk/demo/Main.java)
+is in the demo project.
 It uses a custom [ApiClient](demo/src/main/java/com/ionos/network/checkmk/demo/CustomApiClient.java)
 to overcome a problem in sending the Accept header.
 
