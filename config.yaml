@@ -15,7 +15,7 @@ additionalProperties:
   dateLibrary: java8
   java8: true
   scmUrl: https://github.com/1and1/checkmk-java-client
-  scmConnection: scm:git:ssh://git@github.com:1and1/checkmk-java-client.git
-  scmDeveloperConnection: scm:git:ssh://git@github.com:1and1/checkmk-java-client.git
+  scmConnection: scm:git:ssh://git@github.com/1and1/checkmk-java-client.git
+  scmDeveloperConnection: scm:git:ssh://git@github.com/1and1/checkmk-java-client.git
   performBeanValidation: true
   useBeanValidation: true
