@@ -9,8 +9,8 @@
   <url>https://github.com/openapitools/openapi-generator</url>
   <description>REST API client library for Checkmk</description>
   <scm>
-    <connection>scm:git:ssh://git@github.com:1and1/checkmk-java-client.git</connection>
-    <developerConnection>scm:git:ssh://git@github.com:1and1/checkmk-java-client.git</developerConnection>
+    <connection>scm:git:ssh://git@github.com/1and1/checkmk-java-client.git</connection>
+    <developerConnection>scm:git:ssh://git@github.com/1and1/checkmk-java-client.git</developerConnection>
     <url>https://github.com/1and1/checkmk-java-client</url>
   </scm>
   <licenses>
