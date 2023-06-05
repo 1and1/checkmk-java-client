@@ -5,13 +5,14 @@
   <artifactId>checkmk-java-client</artifactId>
   <packaging>jar</packaging>
   <name>checkmk-java-client</name>
-  <version>1.1.2.2.0.1-SNAPSHOT</version>
+  <version>1.1.2.2.0.1</version>
   <url>https://github.com/openapitools/openapi-generator</url>
   <description>REST API client library for Checkmk</description>
   <scm>
     <connection>scm:git:ssh://git@github.com/1and1/checkmk-java-client.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/1and1/checkmk-java-client.git</developerConnection>
     <url>https://github.com/1and1/checkmk-java-client</url>
+    <tag>checkmk-java-client-1.1.2.2.0.1</tag>
   </scm>
   <licenses>
     <license>
@@ -194,8 +195,8 @@
                 <include>.gitignore</include>
               </includes>
               <!-- define the steps to apply to those files -->
-              <trimTrailingWhitespace/>
-              <endWithNewline/>
+              <trimTrailingWhitespace />
+              <endWithNewline />
               <indent>
                 <spaces>true</spaces>
                 <!-- or <tabs>true</tabs> -->
@@ -213,8 +214,8 @@
               <style>AOSP</style>
               <reflowLongStrings>true</reflowLongStrings>
             </googleJavaFormat>
-            <removeUnusedImports/>
-            <importOrder/>
+            <removeUnusedImports />
+            <importOrder />
           </java>
         </configuration>
       </plugin>
