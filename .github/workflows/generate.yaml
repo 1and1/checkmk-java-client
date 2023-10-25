@@ -1,7 +1,7 @@
 name: Extract, generate and build OpenAPI code
 
 env:
-  CMK_VERSION: 2.1.0p17
+  CMK_VERSION: 2.2.0p13
 
 on:
   push:
@@ -13,14 +13,14 @@ jobs:
   extract-openapi:
     uses: 1and1/checkmk-java-client/.github/workflows/extract-openapi.yaml@main
     with:
-      cmk_version: 2.1.0p17
+      cmk_version: 2.2.0p13
       target_artifact: openapi
 
   generate-code:
     needs: extract-openapi
     uses: 1and1/checkmk-java-client/.github/workflows/generate-code.yaml@main
     with:
-      cmk_version: 2.1.0p17
+      cmk_version: 2.2.0p13
       source_artifact: openapi
       target_artifact: source
 
