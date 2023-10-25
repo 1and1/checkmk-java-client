@@ -77,6 +77,7 @@ xmlstarlet edit -N "pom=http://maven.apache.org/POM/4.0.0" \
   --update "/pom:project/pom:properties/pom:okhttp-version" --value "4.12.0" \
   --update "/pom:project/pom:properties/pom:gson-version" --value "2.10.1" \
   --update "/pom:project/pom:properties/pom:jackson-databind-nullable-version" --value "0.2.6" \
+  --update "/pom:project/pom:properties/pom:commons-lang3-version" --value "3.13.0" \
   | \
 awk -v PROFILES="$PROFILES" > pom.xml.new '
 /<\/profiles>/ { print PROFILES; }
