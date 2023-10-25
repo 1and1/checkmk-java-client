@@ -74,9 +74,9 @@ cat pom.xml |
 xmlstarlet edit -N "pom=http://maven.apache.org/POM/4.0.0" \
   --update "/pom:project/pom:licenses/pom:license/pom:name" --value "GNU General Public License, Version 2" \
   --update "/pom:project/pom:licenses/pom:license/pom:url" --value "https://www.gnu.org/licenses/old-licenses/gpl-2.0.txt" \
-  --update "/pom:project/pom:properties/pom:okhttp-version" --value "4.10.0" \
-  --update "/pom:project/pom:properties/pom:gson-version" --value "2.10" \
-  --update "/pom:project/pom:properties/pom:jackson-databind-nullable-version" --value "0.2.4" \
+  --update "/pom:project/pom:properties/pom:okhttp-version" --value "4.12.0" \
+  --update "/pom:project/pom:properties/pom:gson-version" --value "2.10.1" \
+  --update "/pom:project/pom:properties/pom:jackson-databind-nullable-version" --value "0.2.6" \
   | \
 awk -v PROFILES="$PROFILES" > pom.xml.new '
 /<\/profiles>/ { print PROFILES; }
