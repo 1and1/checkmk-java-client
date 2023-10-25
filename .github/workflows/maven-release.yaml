@@ -11,14 +11,14 @@ jobs:
   extract-openapi:
     uses: 1and1/checkmk-java-client/.github/workflows/extract-openapi.yaml@main
     with:
-      cmk_version: 2.2.0p13
+      cmk_version: 2.2.0p12
       target_artifact: openapi
 
   generate-code:
     needs: extract-openapi
     uses: 1and1/checkmk-java-client/.github/workflows/generate-code.yaml@main
     with:
-      cmk_version: 2.2.0p13
+      cmk_version: 2.2.0p12
       source_artifact: openapi
       target_artifact: source
       snapshot: false
