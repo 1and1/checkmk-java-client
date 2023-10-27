@@ -13,18 +13,42 @@ jobs:
       cmk_version: 2.2.0p12
       target_artifact: openapi
 
-  generate-code:
-    needs: extract-openapi
-    uses: 1and1/checkmk-java-client/.github/workflows/generate-code.yaml@main
-    with:
-      cmk_version: 2.2.0p12
-      source_artifact: openapi
-      target_artifact: build
+  build:
+    name: Build Checkmk REST-API
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        java: [ '8' ]
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Set up JDK
+      uses: actions/setup-java@v2
+      with:
+        java-version: ${{ matrix.java }}
+        distribution: 'temurin'
+        cache: maven
+
+    - name: Download OpenAPI spec from above job
+      uses: actions/download-artifact@v3
+      with:
+        name: openapi
+
+    - name: Build with Maven
+      run: mvn -B package --no-transfer-progress --file pom.xml
+      env:
+        JAVA_POST_PROCESS_FILE: ./java_post_process_file.sh
+
+    - uses: actions/upload-artifact@v3
+      with:
+        name: jars
+        path: |
+          target/*.jar
 
   deploy-snapshot:
     runs-on: ubuntu-latest
     needs:
-    - generate-code
+    - build
     steps:
 
     - uses: actions/checkout@v3
