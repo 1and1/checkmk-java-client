@@ -35,10 +35,10 @@ jobs:
         java-version: 17
         distribution: 'adopt'
 
-    - name: Download source
+    - name: Download OpenAPI spec from above job
       uses: actions/download-artifact@v3
       with:
-        name: build
+        name: openapi
 
     - name: Cache local Maven repository
       uses: actions/cache@v3
@@ -52,6 +52,8 @@ jobs:
       env:
         SONATYPE_USER: ${{ secrets.SONATYPE_USER }}
         SONATYPE_PASSWORD: ${{ secrets.SONATYPE_PASSWORD }}
+        JAVA_POST_PROCESS_FILE: ./java_post_process_file.sh
+
       run: |
         if [ "${SONATYPE_USER}" != "" -a "${SONATYPE_PASSWORD}" != "" ]; then
           mvn -B deploy -P sonatype-oss-snapshot -s .github/settings.xml
