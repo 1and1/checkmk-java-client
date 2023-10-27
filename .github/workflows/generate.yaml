@@ -15,6 +15,8 @@ jobs:
 
   build:
     name: Build Checkmk REST-API
+    needs:
+      - extract-openapi  
     runs-on: ubuntu-latest
     strategy:
       matrix:
