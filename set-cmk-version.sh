@@ -10,6 +10,3 @@ find .github/workflows -iname "*.yaml" -type f | while read FILE; do
     echo "Processing $FILE"
     sed -i -e"s/\(cmk_version:\)\([[:space:]]*\)\([0-9p.]\{3,\}\)$/\1 $VERSION/g" $FILE
 done
-
-echo "Processing settings.sh"
-sed -i -e"s/\(OPENAPI_VERSION=\)\([0-9p.]\{3,\}\)$/\1$VERSION/g" settings.sh

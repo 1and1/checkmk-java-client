@@ -5,7 +5,6 @@ export SNAPSHOT="false"
 ./generate.sh
 mvn -Psonatype-oss-release clean package
 
-source ./settings.sh
 echo "Artifact version: ${ARTIFACT_VERSION}"
 GITTAG="checkmk-java-client-${ARTIFACT_VERSION}"
 echo "Git tag: ${GITTAG}"
