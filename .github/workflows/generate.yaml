@@ -25,7 +25,6 @@ jobs:
     runs-on: ubuntu-latest
     needs:
     - generate-code
-    - build
     steps:
 
     - uses: actions/checkout@v3
@@ -39,7 +38,7 @@ jobs:
     - name: Download source
       uses: actions/download-artifact@v3
       with:
-        name: source
+        name: build
 
     - name: Cache local Maven repository
       uses: actions/cache@v3
