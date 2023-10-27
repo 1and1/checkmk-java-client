@@ -48,3 +48,6 @@ jobs:
         name: ${{ inputs.target_artifact }}
         path: |
           .
+          !.git
+          !.github
+          !.gitignore
