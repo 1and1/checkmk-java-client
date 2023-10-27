@@ -31,6 +31,33 @@
   <build>
     <plugins>
       <plugin>
+          <groupId>org.openapitools</groupId>
+          <artifactId>openapi-generator-maven-plugin</artifactId>
+          <version>5.4.0</version>
+          <executions>
+              <execution>
+                  <goals>
+                      <goal>generate</goal>
+                  </goals>
+                  <configuration>
+                      <inputSpec>${project.basedir}/openapi-doc.yaml</inputSpec>
+                      <generatorName>java</generatorName>
+                      <skipValidateSpec>true</skipValidateSpec>
+                      <enablePostProcessFile>true</enablePostProcessFile>
+                      <configOptions>
+                        <invokerPackage>com.ionos.network.checkmk.openapi</invokerPackage>
+                        <apiPackage>com.ionos.network.checkmk.openapi.api</apiPackage>
+                        <modelPackage>com.ionos.network.checkmk.openapi.model</modelPackage>
+                        <dateLibrary>java8</dateLibrary>
+                        <java8>true</java8>
+                        <useBeanValidation>true</useBeanValidation>
+                        <performBeanValidation>true</performBeanValidation>
+                      </configOptions>
+                  </configuration>
+              </execution>
+          </executions>
+      </plugin>
+      <plugin>
         <groupId>org.apache.maven.plugins</groupId>
         <artifactId>maven-compiler-plugin</artifactId>
         <version>3.8.1</version>
