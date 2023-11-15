@@ -9,7 +9,10 @@ on:
       target_artifact:
         required: true
         type: string
-
+      file_name:
+        type: string
+        default: openapi-doc.yaml
+  
 jobs:
   extract-openapi:
     runs-on: ubuntu-latest
@@ -22,12 +25,12 @@ jobs:
       run: while ! curl "http://localhost:8080//cmk/check_mk/"; do sleep 1; echo -n "."; done
 
     - name: Fetch the OpenAPI spec
-      run: curl -H 'Authorization:Bearer cmkadmin HELLO' "http://localhost:8080/cmk/check_mk/api/v0/openapi-doc.yaml" -o openapi-doc.yaml
+      run: curl -H 'Authorization:Bearer cmkadmin HELLO' "http://localhost:8080/cmk/check_mk/api/v0/openapi-doc.yaml" -o ${{ inputs.file_name }}
 
     - uses: actions/upload-artifact@v3
       with:
         name: ${{ inputs.target_artifact }}
-        path: openapi-doc.yaml
+        path: ${{ inputs.file_name }}
 
     - name: Kill cmk
       run: docker kill cmk

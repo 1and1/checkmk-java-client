@@ -17,6 +17,7 @@ jobs:
     with:
       cmk_version: ${{ matrix.version }}
       target_artifact: openapi
+      file_name: checkmk_${{ matrix.version }}_openapi.yml
     strategy:
       matrix:
         version:
