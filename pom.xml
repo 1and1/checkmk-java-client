@@ -5,14 +5,14 @@
   <artifactId>checkmk-java-client</artifactId>
   <packaging>jar</packaging>
   <name>checkmk-java-client</name>
-  <version>1.2.2.2.0.13-SNAPSHOT</version>
+  <version>1.2.2.1.0.17</version>
   <url>https://github.com/openapitools/openapi-generator</url>
   <description>REST API client library for Checkmk</description>
   <scm>
     <connection>scm:git:ssh://git@github.com/1and1/checkmk-java-client.git</connection>
     <developerConnection>scm:git:ssh://git@github.com/1and1/checkmk-java-client.git</developerConnection>
     <url>https://github.com/1and1/checkmk-java-client</url>
-    <tag>HEAD</tag>
+    <tag>checkmk-java-client-1.2.2.1.0.17</tag>
   </scm>
   <licenses>
     <license>
